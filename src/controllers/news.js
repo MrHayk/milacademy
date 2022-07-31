@@ -7,3 +7,14 @@ export const getNewsController = createController(async req => {
         items: await Db.news.getNews(page, rowsPerPage)
     }
 });
+export const getNewsInfoController = createController(async req => {
+    const { id } = req.params;
+    const [[newsInfo], images] = await Promise.all([
+        Db.news.getNewsInfo(id),
+        Db.news.getNewsImages(id)
+    ]);
+    return {
+        ...(newsInfo || {}),
+        images: images.map((el) => el.title)
+    }
+});

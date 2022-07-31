@@ -7,6 +7,20 @@ const newsSlice = {
             "LIMIT ?, ?",
             [page * rowsPerPage - rowsPerPage, +rowsPerPage]
         );
+    },
+    getNewsInfo(id){
+        return dbHelper.exec(
+            "SELECT * FROM news " +
+            "WHERE id = ?",
+            [id]
+        );
+    },
+    getNewsImages(newsId) {
+        return dbHelper.exec(
+            "SELECT title FROM news_images " +
+            "WHERE news_id = ?",
+            [newsId]
+        );
     }
 };
 
