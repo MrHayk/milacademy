@@ -1,6 +1,6 @@
-import { authMiddleware } from "../middlewares/auth/index.js";
 import chatRouter from "./chat.js";
 import newsRouter from "./news.js";
+import aboutRouter from "./about.js";
 
 export const routes = [
   {
@@ -10,5 +10,9 @@ export const routes = [
   {
     path: "/news",
     router: newsRouter
+  },
+  {
+    path: "/about",
+    router: aboutRouter
   }
 ];
