@@ -1,21 +1,28 @@
 import dbHelper from "../helper.js";
 
 const newsSlice = {
-    getNews(page, rowsPerPage) {
+    get(page, rowsPerPage) {
         return dbHelper.exec(
             "SELECT id, title, description, date, getFirstImage(id) AS image FROM news " + 
             "LIMIT ?, ?",
             [page * rowsPerPage - rowsPerPage, +rowsPerPage]
         );
     },
-    getNewsInfo(id){
+    search(query) {
+        return dbHelper.exec(
+            "SELECT id, title, description, date, getFirstImage(id) AS image FROM news " +
+            "WHERE title LIKE CONCAT('%', ?, '%') OR description LIKE CONCAT('%', ?, '%')",
+            [query, query]
+        )
+    },
+    getInfo(id){
         return dbHelper.exec(
             "SELECT * FROM news " +
             "WHERE id = ?",
             [id]
         );
     },
-    getNewsImages(newsId) {
+    getImages(newsId) {
         return dbHelper.exec(
             "SELECT title FROM news_images " +
             "WHERE news_id = ?",
