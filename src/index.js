@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(express.static(path.join(path.resolve(), "public/files")));
+app.use("/files", express.static(path.join(path.resolve(), "public/files")));
 
 routes.forEach(route => {
   const middlewares = route.middlewares || [];
