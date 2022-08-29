@@ -17,7 +17,7 @@ export const getNewsInfoController = createController(async req => {
     return {
         ...(newsInfo || {}),
         images: images.map((el) => el.title)
-    }
+    }   
 });
 
 export const searchNewsController = createController(async req => {
