@@ -3,16 +3,16 @@ import dbHelper from "../helper.js";
 const newsSlice = {
     get(page, rowsPerPage) {
         return dbHelper.exec(
-            "SELECT id, title, description, date, getFirstImage(id) AS image FROM news " + 
+            "SELECT id, description, date, getFirstImage(id) AS image FROM news " + 
             "LIMIT ?, ?",
             [page * rowsPerPage - rowsPerPage, +rowsPerPage]
         );
     },
     search(query) {
         return dbHelper.exec(
-            "SELECT id, title, description, date, getFirstImage(id) AS image FROM news " +
-            "WHERE title LIKE CONCAT('%', ?, '%') OR description LIKE CONCAT('%', ?, '%')",
-            [query, query]
+            "SELECT id, description, date, getFirstImage(id) AS image FROM news " +
+            "WHERE description LIKE CONCAT('%', ?, '%')",
+            [query]
         )
     },
     getInfo(id){
