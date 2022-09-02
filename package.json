@@ -1,7 +1,7 @@
 {
-  "name": "ilab-admin",
+  "name": "ruh-back",
   "version": "1.0.0",
-  "description": "",
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
@@ -29,5 +29,13 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "2.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrHayk/milacademy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrHayk/milacademy/issues"
+  },
+  "homepage": "https://github.com/MrHayk/milacademy#readme"
 }
