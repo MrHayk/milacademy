@@ -7,6 +7,9 @@ const commonValidations = {
   queryParam: Joi.object({
     query: Joi.string().min(3).required(),
   }),
+  typeQueryParam: Joi.object({
+    type: Joi.string().valid("faq", "common_info").required(),
+  }),
   pagination: Joi.object({
     page: Joi.number(),
     rowsPerPage: Joi.number(),

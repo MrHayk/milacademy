@@ -7,8 +7,8 @@ const Db = {
     return dbHelper.exec("SELECT COUNT(*) as rowsCount FROM ??", [tableName]);
   },
   selectAll(tableName) {
-    return dbHelper.exec("SELECT * FROM ??", [tableName])
-  }
+    return dbHelper.exec("SELECT * FROM ??", [tableName]);
+  },
 };
 
 export default Db;
