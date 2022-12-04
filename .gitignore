@@ -1,6 +1,6 @@
-/node_modules
-
 .env
 
 /public/files/*
 !public/files/test.txt
+
+node_modules
